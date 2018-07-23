@@ -7,7 +7,7 @@ rut
 */
 // query
 
-$result=mysql_query("INSERT INTO `group` (group_name,group_label, empresa_id, user_create) VALUES('$a','$b', $sesionEmpresaID, '$username')");
+$result=mysql_query("INSERT INTO `personal` (nombre,apellido, empresa_id, user_create) VALUES('$a','$b', $sesionEmpresaID, '$username')");
 
 header("location: personal.php");
 
