@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test with embedded image</title>
+</head>
+<body>
+	<table border="1">
+	<?php
+	include('../connect.php');
+	
+	$result=mysql_query("select code, name from products where empresa_id = $sesionEmpresaID and `delete`='0' GROUP BY code, name ");
+		while($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+			?>
+			<? if(contador==0){ ?>
+				<tr>
+			<? } ?>
+				<td>
+				<img src="test_2D.php?text=<?echo $row['empresa_id'];?>" alt="barcode" /> <br />
+				<? echo $row['empresa_nombre']; ?>
+				</td>
+			<? if(contador==2){ ?>
+				</tr>
+			<? contador = 0;} ?>
+		<?php
+			contador++;
+		}
+		?>
+		</table>
+</body>
+</html>
